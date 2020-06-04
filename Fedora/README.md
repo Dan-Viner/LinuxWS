@@ -32,6 +32,9 @@ Note: according to this tutorial from 2019 timshift might not work so well on Fe
 
 ### supporting hebrew fonts
 	sudo dnf install culmus-* alef-fonts* google-noto-sans-hebrew-fonts
+when opening a file- you'll have to choose the right encoding.
+#### Sublime
+add "show_encoding": true to the user settings, and then the encoding will appear at the bottom of the window, click on it to switch to a different encoding.
   
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
