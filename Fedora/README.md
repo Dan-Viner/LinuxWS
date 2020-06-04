@@ -40,10 +40,9 @@ open file through the gedit app, and before the actual opening- change the encod
 Partial RTL support
 
 ### Timeshift
-how to work with timeshift: https://www.youtube.com/watch?v=OMiCcFy4oGM&t=447s
-Note: according to this tutorial from 2019 timshift might not work so well on Fedora because SELinux is enabled.
-  you can check SELinux's status with "sestatus"
-  see full article: https://howto.lintel.in/enable-disable-selinux-centos/
+How to work with timeshift: https://www.youtube.com/watch?v=OMiCcFy4oGM&t=447s
+Note: according to this tutorial from 2019 timshift might not work so well on Fedora because SELinux is enabled. I tried it and it worked fine, so I don't know...
+You can check SELinux's status with "sestatus". See some more explanation regarding SELinux in: https://howto.lintel.in/enable-disable-selinux-centos/
 
 
 ### multimedia codecs
