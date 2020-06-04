@@ -36,7 +36,7 @@ when opening a file- you'll have to choose the right encoding.
 #### Sublime
 add "show_encoding": true to the user settings, and then the encoding will appear at the bottom of the window, click on it to switch to a different encoding.
 RTL is not supported as far as I saw
-#### gedit
+#### gedit (Gnome)
 first add the encodings to gedit preferences through dconf-editor: /org/gnome/gedit/preferences/encodings/candidate-encodings/
 I used this value: ['UTF-8', 'ISO-8859-15', 'UTF-16', 'ISO-8859-8', 'windows-1255'].
 open file through the gedit app, and before the actual opening- change the encoding in the bottom (windows-1255 should work fine).
