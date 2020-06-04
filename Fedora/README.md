@@ -12,7 +12,7 @@ a new Fedora 30 WS initialization notes and files.
 	sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 ### Packages
-	sudo dnf install vim htop meld anki git lyx eclipse snapd vlc timeshift thunderbird tlp
+	sudo dnf install vim htop meld anki git git-gui lyx eclipse snapd vlc timeshift thunderbird tlp
 	
 ### Snap packages
 	snap install sublime pycharm-community android-studio spotify
