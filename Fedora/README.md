@@ -45,5 +45,5 @@ Partial RTL support
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
 
-### important Gnome-extensions
+#### important Gnome-extensions
 	"topIcons plus" "dash to panel" "system monitor"
