@@ -16,19 +16,16 @@ a new Fedora 30 WS initialization notes and files.
 	
 ### Snap packages
 	snap install sublime pycharm-community android-studio spotify
+	
+### Gnome
+	sudo dnf install gnome-tweak-tool dconf-editor
+
+#### Gnome-extensions
+	"topIcons plus" "dash to panel" "system monitor"
   
 ### Virtual machine
 	sudo dnf install @Virtualization virt-manager -y
 
-### Timeshift
-how to work with timeshift: https://www.youtube.com/watch?v=OMiCcFy4oGM&t=447s
-Note: according to this tutorial from 2019 timshift might not work so well on Fedora because SELinux is enabled.
-  you can check SELinux's status with "sestatus"
-  see full article: https://howto.lintel.in/enable-disable-selinux-centos/
-
-
-### multimedia codecs
-	sudo dnf -y install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras
 
 ### Hebrew support
 	sudo dnf install culmus-* alef-fonts* google-noto-sans-hebrew-fonts
@@ -41,9 +38,17 @@ first add the encodings to gedit preferences through dconf-editor: /org/gnome/ge
 I used this value: ['UTF-8', 'ISO-8859-15', 'UTF-16', 'ISO-8859-8', 'windows-1255'].
 open file through the gedit app, and before the actual opening- change the encoding in the bottom (windows-1255 should work fine).
 Partial RTL support
-  
-### Gnome
-	sudo dnf install gnome-tweak-tool dconf-editor
 
-#### Gnome-extensions
-	"topIcons plus" "dash to panel" "system monitor"
+### Timeshift
+how to work with timeshift: https://www.youtube.com/watch?v=OMiCcFy4oGM&t=447s
+Note: according to this tutorial from 2019 timshift might not work so well on Fedora because SELinux is enabled.
+  you can check SELinux's status with "sestatus"
+  see full article: https://howto.lintel.in/enable-disable-selinux-centos/
+
+
+### multimedia codecs
+	sudo dnf -y install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras
+	
+### Dnf plugin
+	sudo dnf install 'dnf-command(leaves)'
+now "dnf leaves" will show all the packages that are not required by any other package
