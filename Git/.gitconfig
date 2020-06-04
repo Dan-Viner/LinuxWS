@@ -1,0 +1,10 @@
+[core]
+	editor = vim
+[alias]
+	lol = "log --oneline --graph --decorate"
+[diff]
+    	tool = meld
+[difftool]
+    	prompt = false
+[difftool "meld"]
+    	cmd = meld "$LOCAL" "$REMOTE"
