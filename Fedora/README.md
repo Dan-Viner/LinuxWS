@@ -35,6 +35,9 @@ Note: according to this tutorial from 2019 timshift might not work so well on Fe
 when opening a file- you'll have to choose the right encoding.
 #### Sublime
 add "show_encoding": true to the user settings, and then the encoding will appear at the bottom of the window, click on it to switch to a different encoding.
+RTL is not supported as far as I saw
+#### gedit
+open file through the gedit app, and before the actual opening- change the encoding in the bottom
   
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
