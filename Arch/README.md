@@ -1,1 +1,52 @@
+# Arch
+a new Arch WS initialization notes and files.
 
+## installation
+follow instructions from arch linux wiki.
+
+some notes:
+
+* _wifi_: in the installation process use iw and iwd. afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps: 1. nmcli r (verify that all are enabled). 2. nmcli d wifi rescan. 3. nmcli d wifi connect <NETWORK> password <PASSWORD>.
+* _timedatectl_: verify your system is using the UTC and not the local time zone using: timedatectl status (system clock should be syncronized). if not use "timedatectl set-ntp true"
+
+
+### Packages
+	sudo pacman -S vim htop meld anki git git-gui lyx eclipse snapd vlc timeshift
+	
+### Snap packages
+	snap install sublime pycharm-community android-studio spotify
+	
+### Gnome
+	sudo dnf install gnome-tweak-tool dconf-editor
+
+#### Gnome-extensions
+	"topIcons plus" "dash to panel" "system monitor"
+  
+### Virtual machine
+	sudo dnf install @Virtualization virt-manager -y
+
+
+### Hebrew support
+	sudo dnf install culmus-* alef-fonts* google-noto-sans-hebrew-fonts
+when opening a file- you'll have to choose the right encoding.
+#### Sublime
+add "show_encoding": true to the user settings, and then the encoding will appear at the bottom of the window, click on it to switch to a different encoding.
+RTL is not supported as far as I saw
+#### Gedit (Gnome)
+first add the encodings to gedit preferences through dconf-editor: /org/gnome/gedit/preferences/encodings/candidate-encodings/
+I used this value: ['UTF-8', 'ISO-8859-15', 'UTF-16', 'ISO-8859-8', 'windows-1255'].
+open file through the gedit app, and before the actual opening- change the encoding in the bottom (windows-1255 should work fine).
+Partial RTL support
+
+### Timeshift
+How to work with timeshift: https://www.youtube.com/watch?v=OMiCcFy4oGM&t=447s
+Note: according to this tutorial from 2019 timshift might not work so well on Fedora because SELinux is enabled. I tried it and it worked fine, so I don't know...
+You can check SELinux's status with "sestatus". See some more explanation regarding SELinux in: https://howto.lintel.in/enable-disable-selinux-centos/
+
+
+### multimedia codecs
+	sudo dnf -y install gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras
+	
+### Dnf plugin
+	sudo dnf install 'dnf-command(leaves)'
+now "dnf leaves" will show all the packages that are not required by any other package
