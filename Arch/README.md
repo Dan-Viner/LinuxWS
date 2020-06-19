@@ -9,10 +9,14 @@ some notes:
 * _wifi_: in the installation process use iw and iwd. afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps: 1. nmcli r (verify that all are enabled). 2. nmcli d wifi rescan. 3. nmcli d wifi connect <NETWORK> password <PASSWORD>.
 * _timedatectl_: verify your system is using the UTC and not the local time zone using: timedatectl status (system clock should be syncronized). if not use "timedatectl set-ntp true"
 
+### pacman basic usage
+
 
 ### Packages
-	sudo pacman -S vim htop meld anki git git-gui lyx eclipse snapd vlc timeshift
-	
+	sudo pacman -S vim htop meld anki git vlc 
+
+git-gui lyx eclipse snapd timeshift
+
 ### Snap packages
 	snap install sublime pycharm-community android-studio spotify
 	
