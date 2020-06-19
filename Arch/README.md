@@ -15,7 +15,7 @@ some notes:
 * _timedatectl_: verify your system is using the UTC and not the local time zone using:
 
 		timedatectl status (system clock should be syncronized).
-	if not use 
+	if not, use 
 
 		timedatectl set-ntp true
 
