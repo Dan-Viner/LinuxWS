@@ -38,8 +38,19 @@ Notes: you'll probably need to restrt gui for the changes to take effect.
 	
 
 ### Packages
-	sudo pacman -S vim htop meld anki git vlc 
+pacman packages
 
+	sudo pacman -S vim htop meld anki git vlc base-devel
+
+many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
+
+some 
+
+snapd:
+
+	git clone https://aur.archlinux.org/snapd.git
+	cd snapd/
+	makepkg -si
 git-gui lyx eclipse snapd timeshift
 
 ### Snap packages
