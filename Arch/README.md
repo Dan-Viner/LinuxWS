@@ -6,11 +6,33 @@ follow instructions from arch linux wiki.
 
 some notes:
 
-* _wifi_: in the installation process use iw and iwd. afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps: 1. nmcli r (verify that all are enabled). 2. nmcli d wifi rescan. 3. nmcli d wifi connect <NETWORK> password <PASSWORD>.
-* _timedatectl_: verify your system is using the UTC and not the local time zone using: timedatectl status (system clock should be syncronized). if not use "timedatectl set-ntp true"
+* _wifi_: in the installation process use iw and iwd. afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps:
+
+		1. nmcli r (verify that all are enabled). 2. nmcli d wifi rescan. 3. nmcli d wifi connect <NETWORK> password <PASSWORD>.
+* _timedatectl_: verify your system is using the UTC and not the local time zone using:
+
+		timedatectl status (system clock should be syncronized).
+	if not use 
+
+		timedatectl set-ntp true
 
 ### pacman basic usage
 
+### HiDPI monitors
+to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
+
+	xdpyinfo | grep -B 2 resolution
+and check the physical dimensions using:
+
+	xrandr | grep -w connected
+then you just need to devide the resolution by the dimensions to get the native DPI for your monitor.
+
+change the DPI using the following command:
+
+	xrandr --dpi <NEW_DPI>
+
+Notes: you'll probably need to restrt gui for the changes to take effect.
+	
 
 ### Packages
 	sudo pacman -S vim htop meld anki git vlc 
