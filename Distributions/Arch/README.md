@@ -20,6 +20,23 @@ some notes:
 		timedatectl set-ntp true
 
 ### pacman basic usage
+refresh sources:
+
+	pacman -Syyy
+get help in general or for specific operation:
+
+	pacman --help (general)
+	pacman -S --help (help for the -S option, for example)
+install a package:
+
+	pacman -S <PACKAGE>
+Remove a package:
+	
+	pacman -R <PACKAGE>
+
+check which files and folders are owned by a package:
+
+	pacman -Ql <PACKAGE>
 
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
@@ -44,14 +61,15 @@ pacman packages
 
 many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
 
-some 
+The basic installation process is:
 
-snapd:
-
-	git clone https://aur.archlinux.org/snapd.git
-	cd snapd/
+	git clone https://aur.archlinux.org/<PACKAGE_NAME>.git
+	cd <PACKAGE_NAME>
 	makepkg -si
-git-gui lyx eclipse snapd timeshift
+some aur packages:
+	
+	eclipse snapd timeshift
+Note: once the package is installed, it is recognized by pacman, and can be removed using "pacman -R"
 
 ### Snap packages
 	snap install sublime pycharm-community android-studio spotify
