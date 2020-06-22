@@ -8,7 +8,7 @@ some notes:
 
 * _wifi_: in the installation process use iw and iwd (check this [arch-wiki-page](https://wiki.archlinux.org/index.php/Iwd)). afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps:
 
-		nmcli r (verify that all are enabled)
+		nmcli r (verify that all are enabled, if wifi is off, turn it on using "nmcli r wifi on")
 		nmcli d wifi rescan
 		nmcli d wifi list
 		nmcli d wifi connect <NETWORK> password <PASSWORD>.
