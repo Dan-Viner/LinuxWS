@@ -64,11 +64,13 @@ activate specific monitor using:
 	xrandr --output <monitor name, e.g. HDMI1> --auto
 
 ### Packages
-pacman packages
+pacman packages:
 
 	sudo pacman -S vim htop meld anki git vlc base-devel
 
 many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
+
+`TODO` check about package helpers such as **yay**
 
 The basic installation process is:
 
