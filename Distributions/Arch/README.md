@@ -67,17 +67,17 @@ activate specific monitor using:
 
 Basic key-bindings:
 
-`<mod> + s`  - shows the help menu for basic operations
-`<mod> + r`  - run prompt
-`<mod> + enter` - open terminal
-`<mod> + space` - change tiling form
-`<mod> + ctrl + r` - restart awesome
-`<mod> + shift + q` - logout
-`<mod> + shift + c` - close window
-`<mod> + arrow` - navigate between tags (workspace)
-`<mod> + k,j` - navigate between windows
-`<mod> + f,m` - enter/exit a. full screen mode. b. max mode respectively
-`<mod> + n/ <mod> + ctrl n` minimize/unminimize
+* `<mod> + s`  - shows the help menu for basic operations
+* `<mod> + r`  - run prompt
+* `<mod> + enter` - open terminal
+* `<mod> + space` - change tiling form
+* `<mod> + ctrl + r` - restart awesome
+* `<mod> + shift + q` - logout
+* `<mod> + shift + c` - close window
+* `<mod> + arrow` - navigate between tags (workspace)
+* `<mod> + k,j` - navigate between windows
+* `<mod> + f,m` - enter/exit a. full screen mode. b. max mode respectively
+* `<mod> + n/ <mod> + ctrl n` minimize/unminimize
 
 ### applications for windows manager
 
