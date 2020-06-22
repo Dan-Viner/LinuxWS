@@ -52,7 +52,16 @@ change the DPI using the following command:
 	xrandr --dpi <NEW_DPI>
 
 Notes: you'll probably need to restrt gui for the changes to take effect.
-	
+
+### multiple monitors
+check this [arch wiki page](https://wiki.archlinux.org/index.php/Multihead)
+
+see available monitors using:
+
+	xrandr -q
+activate specific monitor using:
+
+	xrandr --output <monitor name, e.g. HDMI1> --auto
 
 ### Packages
 pacman packages
