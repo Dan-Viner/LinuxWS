@@ -63,6 +63,34 @@ activate specific monitor using:
 
 	xrandr --output <monitor name, e.g. HDMI1> --auto
 
+## awesome wm
+
+Basic key-bindings:
+
+`<mod> + s`  - shows the help menu for basic operations
+`<mod> + r`  - run prompt
+`<mod> + enter` - open terminal
+`<mod> + space` - change tiling form
+`<mod> + ctrl + r` - restart awesome
+`<mod> + shift + q` - logout
+`<mod> + shift + c` - close window
+`<mod> + arrow` - navigate between tags (workspace)
+`<mod> + k,j` - navigate between windows
+`<mod> + f,m` - enter/exit a. full screen mode. b. max mode respectively
+`<mod> + n/ <mod> + ctrl n` minimize/unminimize
+
+### applications for windows manager
+
+First we'll want to install an application launcher. "dmenu" is a good option.
+
+	pacman -S dmenu
+then run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d` keybinding by adding these lines in the rc.lua (under "Key bindings"):
+
+	--My bindings
+	awful.key({ modkey }, "d", function () awful.spawn("dmenu_run") end,
+	          {description = "open dmenu", group = "my keybindings"})
+This way the new keybinding will appear in the help menu under "my keybindings"
+
 ### Packages
 pacman packages:
 
