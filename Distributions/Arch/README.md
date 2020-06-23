@@ -18,6 +18,11 @@ some notes:
 	if not, use 
 
 		timedatectl set-ntp true
+`TODO` - add a key-bord layout.
+
+`TODO` - add fonts.
+
+`TODO` - add ctrl+c, ctrl+v + clipboard manager
 
 ### pacman basic usage
 refresh sources:
@@ -79,6 +84,8 @@ Basic key-bindings:
 * `<mod> + f,m` - enter/exit a. full screen mode. b. max mode respectively
 * `<mod> + n/ <mod> + ctrl n` minimize/unminimize
 
+To enable configuration, copy the configuration file from /etc/xdg/awesome/
+
 ### applications for windows manager
 
 First we'll want to install an application launcher. "dmenu" is a good option.
@@ -90,6 +97,8 @@ then run it with `dmenu_run`. It's usefull to create a shortcut for this, I used
 	awful.key({ modkey }, "d", function () awful.spawn("dmenu_run") end,
 	          {description = "open dmenu", group = "my keybindings"})
 This way the new keybinding will appear in the help menu under "my keybindings"
+
+Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. Install notification manager, 
 
 ### Packages
 pacman packages:
