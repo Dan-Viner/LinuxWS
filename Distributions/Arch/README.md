@@ -38,7 +38,9 @@ install a package:
 Remove a package:
 	
 	pacman -R <PACKAGE>
+Upgrade all packages:
 
+	pacman -Syu
 check which files and folders are owned by a package:
 
 	pacman -Ql <PACKAGE>
