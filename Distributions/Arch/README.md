@@ -94,7 +94,7 @@ then run it with `dmenu_run`. It's usefull to create a shortcut for this, I used
 	          {description = "open dmenu", group = "my keybindings"})
 This way the new keybinding will appear in the help menu under "my keybindings"
 
-**image viewer** - [feh](https://wiki.archlinux.org/index.php/Feh)
+**image viewer** - [feh](https://wiki.archlinux.org/index.php/Feh) (available via pacman)
 
 Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. Install notification manager, 
 
