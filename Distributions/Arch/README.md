@@ -100,7 +100,7 @@ Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. In
 
 ### Constumizations
 
-Enable theme modifications by copying the "/usr/share/awesome/themes/default" to the "~/.config/awesome/" folder, and update the new path in config file ("~/.config/awesome/rc.lua"):
+Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` to the `"~/.config/awesome/"` folder, and update the new path in config file (`"~/.config/awesome/rc.lua"`):
 `beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")` becomes `beautiful.init(~/.config/awesome/themes/default/theme.lua)`
 
 ### Packages
