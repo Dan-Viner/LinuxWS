@@ -25,25 +25,15 @@ some notes:
 `TODO` - add ctrl+c, ctrl+v + clipboard manager
 
 ### pacman basic usage
-refresh sources:
-
-	pacman -Syyy
-get help in general or for specific operation:
+`pacman -Syyy` - Refresh sources
+Get help in general or for specific operation:
 
 	pacman --help (general)
 	pacman -S --help (help for the -S option, for example)
-install a package:
-
-	pacman -S <PACKAGE>
-Remove a package:
-	
-	pacman -R <PACKAGE>
-Upgrade all packages:
-
-	pacman -Syu
-check which files and folders are owned by a package:
-
-	pacman -Ql <PACKAGE>
+`pacman -S <PACKAGE>` - Install a package
+`pacman -R <PACKAGE>` - Remove a package
+`pacman -Syu` - Upgrade all packages
+`pacman -Ql <PACKAGE>` - check which files and folders are owned by a package
 
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
