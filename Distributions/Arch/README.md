@@ -18,7 +18,7 @@ some notes:
 	if not, use 
 
 		timedatectl set-ntp true
-`TODO` - add a key-bord layout.
+`TODO` - add a keyboard layout.
 
 `TODO` - add fonts.
 
