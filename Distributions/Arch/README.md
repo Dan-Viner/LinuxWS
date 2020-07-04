@@ -26,13 +26,17 @@ some notes:
 
 ### pacman basic usage
 `pacman -Syyy` - Refresh sources
+
 Get help in general or for specific operation:
 
 	pacman --help (general)
 	pacman -S --help (help for the -S option, for example)
 `pacman -S <PACKAGE>` - Install a package
+
 `pacman -R <PACKAGE>` - Remove a package
+
 `pacman -Syu` - Upgrade all packages
+
 `pacman -Ql <PACKAGE>` - check which files and folders are owned by a package
 
 ### HiDPI monitors
