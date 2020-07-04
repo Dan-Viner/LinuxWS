@@ -80,7 +80,7 @@ Basic key-bindings:
 * `<mod> + f,m` - enter/exit a. full screen mode. b. max mode respectively
 * `<mod> + n/ <mod> + ctrl n` minimize/unminimize
 
-To enable configuration, copy the configuration file from /etc/xdg/awesome/
+To enable configuration, copy the configuration file from "/etc/xdg/awesome/rc.lua" to "~/.config/awesome/rc.lua"
 
 ### applications for windows manager
 
@@ -97,6 +97,11 @@ This way the new keybinding will appear in the help menu under "my keybindings"
 **image viewer** - [feh](https://wiki.archlinux.org/index.php/Feh)
 
 Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. Install notification manager, 
+
+### Constumizations
+
+Enable theme modifications by copying the "/usr/share/awesome/themes/default" to the "~/.config/awesome/" folder, and update the new path in config file ("~/.config/awesome/rc.lua"):
+`beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")` becomes `beautiful.init(~/.config/awesome/themes/default/theme.lua)`
 
 ### Packages
 pacman packages:
