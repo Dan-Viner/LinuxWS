@@ -27,17 +27,15 @@ some notes:
 ### pacman basic usage
 `pacman -Syyy` - Refresh sources
 
-Get help in general or for specific operation:
-
-	pacman --help (general)
-	pacman -S --help (help for the -S option, for example)
 `pacman -S <PACKAGE>` - Install a package
 
-`pacman -R <PACKAGE>` - Remove a package
+`pacman -Rs <PACKAGE>` - Remove a package and its dependencies
 
 `pacman -Syu` - Upgrade all packages
 
 `pacman -Ql <PACKAGE>` - check which files and folders are owned by a package
+
+`sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
 
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
