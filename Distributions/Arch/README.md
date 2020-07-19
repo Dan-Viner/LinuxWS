@@ -39,12 +39,21 @@ some notes:
 
 ### Display manager
 
-e.g. lightdm with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server`
+e.g. [https://wiki.archlinux.org/index.php/LightDM](lightdm) with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server` (lightdm is based on X-server, and that's why xorg-server is necessary)
 
 * change the greeter in `/etc/lightdm/lightdm.conf` under `[Seat:*]` ... `greeter-session=lightdm-webkit2-greeter`.
 * activate the service using: `systemctl enable lightdm.service`
 
 **Note**: if you don't change the greeter- the DM will try the default greeter, which is the gtk-greeter, and if it is not installed- the DM loading will fail.
+
+### Terminal emulator
+
+e.g. [https://wiki.archlinux.org/index.php/Xterm](xterm) : `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
+
+usefull configurations:
+* `XTerm.termName: xterm-256color` or `XTerm.termName: xterm`
+* `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
+* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [https://wiki.archlinux.org/index.php/Xterm](arch page)
 
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
