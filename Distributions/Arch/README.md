@@ -142,7 +142,9 @@ Note: once the package is installed, it is recognized by pacman, and can be remo
 
 ### Snap packages
 	snap install sublime pycharm-community android-studio spotify
-	
+
+**note** pycharm-community will require the `--classic` flag which means that it will have the same access rights as regular packages, instead of being constrained to the snap scope as regular snap packages
+
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
 
