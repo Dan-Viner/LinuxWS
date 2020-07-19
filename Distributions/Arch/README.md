@@ -39,7 +39,7 @@ some notes:
 
 ### Display manager
 
-e.g. [https://wiki.archlinux.org/index.php/LightDM](lightdm) with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server` (lightdm is based on X-server, and that's why xorg-server is necessary)
+e.g. [lightdm](https://wiki.archlinux.org/index.php/LightDM) with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server` (lightdm is based on X-server, and that's why xorg-server is necessary)
 
 * change the greeter in `/etc/lightdm/lightdm.conf` under `[Seat:*]` ... `greeter-session=lightdm-webkit2-greeter`.
 * activate the service using: `systemctl enable lightdm.service`
@@ -48,12 +48,12 @@ e.g. [https://wiki.archlinux.org/index.php/LightDM](lightdm) with webkit2 greete
 
 ### Terminal emulator
 
-e.g. [https://wiki.archlinux.org/index.php/Xterm](xterm) : `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
+e.g. [xterm](https://wiki.archlinux.org/index.php/Xterm) : `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
 
 usefull configurations:
 * `XTerm.termName: xterm-256color` or `XTerm.termName: xterm`
 * `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
-* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [https://wiki.archlinux.org/index.php/Xterm](arch page)
+* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
 
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
