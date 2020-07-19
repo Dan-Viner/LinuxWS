@@ -37,6 +37,15 @@ some notes:
 
 `sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
 
+### Display manager
+
+e.g. lightdm with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server`
+
+* change the greeter in `/etc/lightdm/lightdm.conf` under `[Seat:*]` ... `greeter-session=lightdm-webkit2-greeter`.
+* activate the service using: `systemctl enable lightdm.service`
+
+**Note**: if you don't change the greeter- the DM will try the default greeter, which is the gtk-greeter, and if it is not installed- the DM loading will fail.
+
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
 
