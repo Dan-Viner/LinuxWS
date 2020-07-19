@@ -37,6 +37,25 @@ some notes:
 
 `sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
 
+### Packages
+pacman packages:
+
+	sudo pacman -S vim htop meld anki git vlc base-devel
+
+many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
+
+`TODO` check about package helpers such as **yay**
+
+The basic installation process is:
+
+	git clone https://aur.archlinux.org/<PACKAGE_NAME>.git
+	cd <PACKAGE_NAME>
+	makepkg -si
+some aur packages:
+	
+	eclipse snapd timeshift
+Note: once the package is installed, it is recognized by pacman, and can be removed using "pacman -R"
+
 ### Display manager
 
 e.g. [lightdm](https://wiki.archlinux.org/index.php/LightDM) with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server` (lightdm is based on X-server, and that's why xorg-server is necessary)
@@ -121,26 +140,8 @@ Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` 
 
 **Wallpaper**: to change the wallpaper, change the path of theme.wallpaper in theme.lua file.
 
-### Packages
-pacman packages:
-
-	sudo pacman -S vim htop meld anki git vlc base-devel
-
-many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
-
-`TODO` check about package helpers such as **yay**
-
-The basic installation process is:
-
-	git clone https://aur.archlinux.org/<PACKAGE_NAME>.git
-	cd <PACKAGE_NAME>
-	makepkg -si
-some aur packages:
-	
-	eclipse snapd timeshift
-Note: once the package is installed, it is recognized by pacman, and can be removed using "pacman -R"
-
 ### Snap packages
+To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
 	snap install sublime pycharm-community android-studio spotify
 
 **note** pycharm-community will require the `--classic` flag which means that it will have the same access rights as regular packages, instead of being constrained to the snap scope as regular snap packages
