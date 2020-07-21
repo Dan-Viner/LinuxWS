@@ -110,6 +110,19 @@ activate specific monitor using:
 
 ## awesome wm
 
+**awesome** is a windows manager, and not a full desktop environment, meaning that it doesn't come with many (or any) additional applications that making the user experience easier, such as panel, notifications, settings (to control sound, monitors, power management and everything else) etc.
+
+The main reason (for me) to use a windows manger and not a desktop environment is for learning purposes. The fact that you don't have all this applications installed by default- ecourages self-invastigations.
+
+This [youtube video](https://www.youtube.com/watch?v=Obzf9ppODJU&t=500s) explains the basic consepts of tiling window mangement, and makes a comprehensible comparison between the different choices. The key differences are:
+
+* **The programming language**: different window managers are based on different language, so the configurations can be easier if you're already familiar with the language of the window manger you're using. awsome is based on the [Lua programming language](https://en.wikipedia.org/wiki/Lua_(programming_language)).
+* **The minimalistic level**: some WM are more minimalistic than others, in terms of the additional applications that are installed by default alongside the actual window-manager. awsome is pretty minimalistic, but definately not the most minimalistic WM available.
+* **The Tiling method**: there are various Tiling method, as explained in the video above, and different WM uses different method. awsome, for example let the user dynamically choose the prefered Tiling method from a selection of 13.
+* **The multiple-monitor handling method**: 
+
+
+
 Basic key-bindings:
 
 * `<mod> + s`  - shows the help menu for basic operations
