@@ -1,7 +1,7 @@
 # Arch
 a new Arch WS initialization notes and files.
 
-## installation
+## Installation
 follow instructions from arch linux wiki.
 
 a recommanded arch linux installation instruction videos:
@@ -26,9 +26,9 @@ you can also use the `nmtui` command as an easy GUI alternative.
 		
 **Note:** I don't understand why some things are done only on the live media in the installlation process and not on the actual system (for example the whole `timedatectl set-ntp true`).
 
-### adding hebrew support (on X-server)
+### Adding hebrew support (on X-server)
 
-See this [arch wiki](https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration) for detailed information. I just used one of the simplest option by adding an x-conf file under: `/etc/X11/xorg.conf.d/00-keyboard.conf` with this text:
+Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration) arch-wiki for detailed information. I just used one of the simplest option by adding an x-conf file under: `/etc/X11/xorg.conf.d/00-keyboard.conf` with this text:
 
 	Section "InputClass"
                 Identifier "system-keyboard"
@@ -40,13 +40,12 @@ See this [arch wiki](https://wiki.archlinux.org/index.php/Xorg/Keyboard_configur
 	EndSection
 In order for the changes to take affect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
 
-`TODO` - add a keyboard layout.
 
 `TODO` - add fonts.
 
 `TODO` - add ctrl+c, ctrl+v + clipboard manager
 
-### pacman basic usage
+### Pacman basic usage
 `pacman -Syyy` - Refresh sources
 
 `pacman -S <PACKAGE>` - Install a package
@@ -111,7 +110,7 @@ change the DPI using the following command:
 
 Notes: you'll probably need to restrt gui for the changes to take effect.
 
-### multiple monitors
+### Multiple monitors
 check this [arch wiki page](https://wiki.archlinux.org/index.php/Multihead)
 
 see available monitors using:
@@ -121,7 +120,7 @@ activate specific monitor using:
 
 	xrandr --output <monitor name, e.g. HDMI1> --auto
 
-## awesome wm
+## Awesome wm
 
 **awesome** is a windows manager, and not a full desktop environment, meaning that it doesn't come with many (or any) additional applications that making the user experience easier, such as panel, notifications, settings (to control sound, monitors, power management and everything else) etc.
 
@@ -155,7 +154,7 @@ Basic key-bindings:
 
 To enable configuration, copy the configuration file from "/etc/xdg/awesome/rc.lua" to "~/.config/awesome/rc.lua"
 
-### applications for windows manager
+### Applications for windows manager
 
 First we'll want to install an application launcher. "dmenu" is a good option.
 
