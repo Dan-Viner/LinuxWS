@@ -169,7 +169,7 @@ Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` 
 To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
 	snap install sublime pycharm-community android-studio spotify
 
-**note** pycharm-community will require the `--classic` flag which means that it will have the same access rights as regular packages, instead of being constrained to the snap scope as regular snap packages
+**A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation.
 
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
