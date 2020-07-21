@@ -26,6 +26,19 @@ you can also use the `nmtui` command as an easy GUI alternative.
 		
 **Note:** I don't understand why some things are done only on the live media in the installlation process and not on the actual system (for example the whole `timedatectl set-ntp true`).
 
+### adding hebrew support (on X-server)
+
+See this [arch wiki](https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration) for detailed information. I just used one of the simplest option by adding an x-conf file under: `/etc/X11/xorg.conf.d/00-keyboard.conf` with this text:
+
+	Section "InputClass"
+                Identifier "system-keyboard"
+                MatchIsKeyboard "on"
+                Option "XkbLayout" "us,il"
+                Option "XkbModel" "pc104"
+                Option "XkbVariant" "qwerty"
+                Option "XkbOptions" "grp:alt_shift_toggle"
+	EndSection
+In order for the changes to take affect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
 
 `TODO` - add a keyboard layout.
 
