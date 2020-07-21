@@ -4,6 +4,10 @@ a new Arch WS initialization notes and files.
 ## installation
 follow instructions from arch linux wiki.
 
+a recommanded arch linux installation instruction videos:
+* basic installations playlist: ["EF- Tech made simple" playlist](https://www.youtube.com/watch?v=sm_fuBeaOqE&list=PL-odKaUzOz3IT3FLQlXFaRVyNpWW1nj68&index=24). I enjoyed the one for [arch with BTRFS and snapper](https://www.youtube.com/watch?v=sm_fuBeaOqE&t=1175s) in particular.
+* understanding the installation process: check [this playlist](https://www.youtube.com/watch?v=wZr9WTfFed0&list=PL2t9VWDusOo-0jF18YvEVhwpxTXlXPunG) by "Nice Micro", and specifically the one about [setting an internet connection](https://www.youtube.com/watch?v=IkI7nNxsh7I)
+
 some notes:
 
 * _wifi_: in the installation process use iw and iwd (check this [arch-wiki-page](https://wiki.archlinux.org/index.php/Iwd)). afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps:
@@ -12,12 +16,17 @@ some notes:
 		nmcli d wifi rescan
 		nmcli d wifi list
 		nmcli d wifi connect <NETWORK> password <PASSWORD>.
+you can also use the `nmtui` command as an easy GUI alternative.
 * _timedatectl_: verify your system is using the UTC and not the local time zone using:
 
 		timedatectl status (system clock should be syncronized).
 	if not, use 
 
 		timedatectl set-ntp true
+		
+**Note:** I don't understand why some things are done only on the live media in the installlation process and not on the actual system (for example the whole `timedatectl set-ntp true`).
+
+
 `TODO` - add a keyboard layout.
 
 `TODO` - add fonts.
