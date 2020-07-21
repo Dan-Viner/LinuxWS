@@ -41,9 +41,7 @@ Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xo
 In order for the changes to take affect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
 
 
-`TODO` - add fonts.
-
-`TODO` - add ctrl+c, ctrl+v + clipboard manager
+`TODO` - add ctrl+c, ctrl+v + clipboard manager, sound drivers, brightness control + redshift, HiDPI monitors, multiple monitors, power management, notifications, bash key-bindings (search history based on a prefix)
 
 ### Pacman basic usage
 `pacman -Syyy` - Refresh sources
