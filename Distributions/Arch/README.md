@@ -118,8 +118,11 @@ This [youtube video](https://www.youtube.com/watch?v=Obzf9ppODJU&t=500s) explain
 
 * **The programming language**: different window managers are based on different language, so the configurations can be easier if you're already familiar with the language of the window manger you're using. awsome is based on the [Lua programming language](https://en.wikipedia.org/wiki/Lua_(programming_language)).
 * **The minimalistic level**: some WM are more minimalistic than others, in terms of the additional applications that are installed by default alongside the actual window-manager. awsome is pretty minimalistic, but definately not the most minimalistic WM available.
-* **The Tiling method**: there are various Tiling method, as explained in the video above, and different WM uses different method. awsome, for example let the user dynamically choose the prefered Tiling method from a selection of 13.
-* **The multiple-monitor handling method**: 
+* **The Tiling method**: the 2 basic types are manual and dynamic TWM. Manual TWM gives you a choice each time to split a window verticaly or horizontaly. Dynamic TWM, howere, comes with a predefined set of tiling method that will determine where the next window is going to be opened. awesom is a dynamic WM that comes with a set of 12 predefined tiling options (and a floating option as well).
+* **The multiple-monitor handling method**: some WM shows the same workspces in all monitors, so if you're on WS 1 in monitor 1 as well as in monitor 2 - you'll see the same set of windows. However, other WMs, like awesome, have different set of WSs (or tags), so WS 1 in each monitor is actualy a different WS. There is usualy a key combination for trnsfaring a window between monitors, in such TWM.
+
+
+Awesome comes with a pre-installed panel, but the user will have to manually install things like: app-launcher (e.g. dmenu), terminal-emulator (xterm is the default for awesome) and other applications.
 
 
 
