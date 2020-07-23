@@ -190,28 +190,35 @@ Basic key-bindings:
 
 To enable configuration, copy the configuration file from "/etc/xdg/awesome/rc.lua" to "~/.config/awesome/rc.lua"
 
-### Applications for windows manager
-
-First we'll want to install an application launcher. "dmenu" is a good option.
-
-	pacman -S dmenu
-then run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d` keybinding by adding these lines in the rc.lua (under "Key bindings"):
-
-	--My bindings
-	awful.key({ modkey }, "d", function () awful.spawn("dmenu_run") end,
-	          {description = "open dmenu", group = "my keybindings"})
-This way the new keybinding will appear in the help menu under "my keybindings"
-
-**image viewer** - [feh](https://wiki.archlinux.org/index.php/Feh) (available via pacman)
-
-Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. Install notification manager, 
-
 ### Constumizations
 
 Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` to the `"~/.config/awesome/"` folder, and update the new path in config file (`"~/.config/awesome/rc.lua"`):
 `beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")` becomes `beautiful.init(~/.config/awesome/themes/default/theme.lua)`
 
 **Wallpaper**: to change the wallpaper, change the path of theme.wallpaper in theme.lua file.
+
+**key-bindings**: to add a user-defined key-binding you need to add an awful.key in the key binding, and specify the key combination and the function to run. Here's an exmple for running `dmenu` using Mod+d:
+
+	--My bindings
+	awful.key({ modkey }, "d", function () awful.spawn("dmenu_run") end,
+	          {description = "open dmenu", group = "my keybindings"})
+The additional description + group options are to set an awesome help-menu entry.
+
+**floating apps**: to set some apps to always be open in a floating mode - you need to set the appropriate rule in the rc.lua file. Usually there are already some applications that are set by default with this option, so you can just search for "floating clients" and add the apps to the "instance" list. The basic form of the rule is:
+
+	{ rule = { name = "MPlayer" },
+  	properties = { floating = true } }
+
+### Applications for windows manager
+
+First we'll want to install an application launcher. "dmenu" is a good option.
+
+	pacman -S dmenu
+then run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d` keybinding by adding these lines in the rc.lua (under "Key bindings")
+
+**image viewer** - [feh](https://wiki.archlinux.org/index.php/Feh) (available via pacman)
+
+Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. Install notification manager, 
 
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
