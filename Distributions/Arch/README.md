@@ -1,7 +1,7 @@
 # Arch
 a new Arch WS initialization notes and files.
 
-## Installation
+### Installation
 follow instructions from arch linux wiki.
 
 a recommanded arch linux installation instruction videos:
@@ -26,6 +26,31 @@ you can also use the `nmtui` command as an easy GUI alternative.
 		
 **Note:** I don't understand why some things are done only on the live media in the installlation process and not on the actual system (for example the whole `timedatectl set-ntp true`).
 
+### Pacman basic usage
+`pacman -Syyy` - Refresh sources
+
+`pacman -S <PACKAGE>` - Install a package
+
+`pacman -Rs <PACKAGE>` - Remove a package and its dependencies
+
+`pacman -Syu` - Upgrade all packages
+
+`pacman -Ql <PACKAGE>` - check which files and folders are owned by a package
+
+`sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
+
+### Aur packages
+
+Many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
+
+The basic installation process is:
+
+	git clone https://aur.archlinux.org/<PACKAGE_NAME>.git
+	cd <PACKAGE_NAME>
+	makepkg -si
+
+Note: once the package is installed, it is recognized by pacman, and can be removed using "pacman -R"
+
 ### Adding hebrew support (on X-server)
 
 Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration) arch-wiki for detailed information. I just used one of the simplest option by adding an x-conf file under: `/etc/X11/xorg.conf.d/00-keyboard.conf` with this text:
@@ -41,63 +66,13 @@ Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xo
 In order for the changes to take affect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
 
 
-`TODO` - add ctrl+c, ctrl+v + clipboard manager, brightness control + redshift, HiDPI monitors, multiple monitors, power management, notifications, bash key-bindings (search history based on a prefix)
+`TODO` - add ctrl+c, ctrl+v + clipboard manager, brightness control + redshift, HiDPI monitors, multiple monitors, power management, notifications, bash key-bindings (search history based on a prefix), yay (yarout)
 
 ### Sound support
 
 `pacman -S alsa-utils pulseaudio pavucontrol`
 
 alsa-utils should enable applications like `alsamixer` but this app didn't really help me with sound issues. `pulseaudio` is probably crucial for sound drivers, and `pavucontrol` is a gui helper for controling the output/input devices and the volume levels.
-
-### Pacman basic usage
-`pacman -Syyy` - Refresh sources
-
-`pacman -S <PACKAGE>` - Install a package
-
-`pacman -Rs <PACKAGE>` - Remove a package and its dependencies
-
-`pacman -Syu` - Upgrade all packages
-
-`pacman -Ql <PACKAGE>` - check which files and folders are owned by a package
-
-`sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
-
-### Packages
-pacman packages:
-
-	sudo pacman -S vim htop meld anki git vlc base-devel
-
-many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
-
-`TODO` check about package helpers such as **yay**
-
-The basic installation process is:
-
-	git clone https://aur.archlinux.org/<PACKAGE_NAME>.git
-	cd <PACKAGE_NAME>
-	makepkg -si
-some aur packages:
-	
-	eclipse snapd timeshift
-Note: once the package is installed, it is recognized by pacman, and can be removed using "pacman -R"
-
-### Display manager
-
-e.g. [lightdm](https://wiki.archlinux.org/index.php/LightDM) with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server` (lightdm is based on X-server, and that's why xorg-server is necessary)
-
-* change the greeter in `/etc/lightdm/lightdm.conf` under `[Seat:*]` ... `greeter-session=lightdm-webkit2-greeter`.
-* activate the service using: `systemctl enable lightdm.service`
-
-**Note**: if you don't change the greeter- the DM will try the default greeter, which is the gtk-greeter, and if it is not installed- the DM loading will fail.
-
-### Terminal emulator
-
-e.g. [xterm](https://wiki.archlinux.org/index.php/Xterm) : `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
-
-usefull configurations:
-* `XTerm.termName: xterm-256color` or `XTerm.termName: xterm`
-* `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
-* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
 
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
@@ -123,6 +98,48 @@ see available monitors using:
 activate specific monitor using:
 
 	xrandr --output <monitor name, e.g. HDMI1> --auto
+
+## BTRFS
+
+COW file-system.
+
+There are several options for subvolume structurs as you can see [here](https://btrfs.wiki.kernel.org/index.php/SysadminGuide). I used the "flat" layout, with seperate subvolumes for @home and @ (root), as this structure is supported by timeshift (if you want to backup home folder as well).
+
+Anyway, it's recommanded (for some reason) to not mount the top folder in which the subvolume were created, and instead mount the @ subvolume and mount the other subvolume under the mounting point of @ (for example @ can be mounted to /mnt and the @home can be mounted to /mnt/home).
+
+**Note**: Initially I installed only the @ subvolume and then I tried to create a @home subvolume in the top level but I didn't mange to achieve that as anywhere I tried to create the subvolume- it is already inside the system. So if, for example I went for the root directory "/" and created a @home subvolume- then I basically also created the /@home path, and I couldn't choose it as a seperated subvolume and mount it to a different location.
+
+### Checking free-space
+
+On non-RAID system: The first command: `sudo btrfs fi show` shows the allocated space out of the total available space ("used" means "allocated" and not really used). The second command: `btrfs fi df /` shows the used space out of the allocated space.
+
+## Applications
+
+pacman packages:
+
+	sudo pacman -S vim htop meld anki git vlc base-devel
+
+some aur packages:
+	
+	eclipse snapd timeshift
+
+### Display manager
+
+e.g. [lightdm](https://wiki.archlinux.org/index.php/LightDM) with webkit2 greeter: `sudo pacman -S lightdm ligthdm-webkit2-greeter xorg-server` (lightdm is based on X-server, and that's why xorg-server is necessary)
+
+* change the greeter in `/etc/lightdm/lightdm.conf` under `[Seat:*]` ... `greeter-session=lightdm-webkit2-greeter`.
+* activate the service using: `systemctl enable lightdm.service`
+
+**Note**: if you don't change the greeter- the DM will try the default greeter, which is the gtk-greeter, and if it is not installed- the DM loading will fail.
+
+### Terminal emulator
+
+e.g. [xterm](https://wiki.archlinux.org/index.php/Xterm) : `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
+
+usefull configurations:
+* `XTerm.termName: xterm-256color` or `XTerm.termName: xterm`
+* `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
+* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
 
 ## Awesome wm
 
@@ -183,6 +200,7 @@ Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` 
 
 ### Snap packages
 To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
+	
 	snap install sublime pycharm-community android-studio spotify
 
 **A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation. Read more about snap confinements [here](https://snapcraft.io/docs/snap-confinement)
