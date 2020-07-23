@@ -153,7 +153,7 @@ To use snap, after installation, one must first enable/start the service with `s
 ### Timeshift
 Available as an aur package.
 
-I found that I had the need also to install `cronie` in order for the app to work. I don't know why it wasn't installed by default as a dependency.
+I found that I had the need also to install `cronie` in order for the app to work. I don't know why it wasn't installed by default as a dependency. Than you should activate the service using `sudo systemctl enable cronie.service`.
 
 Because I'm using BTRFS I also included the 'home' subvolume. Note that timeshift only support it if the subvolume was created on the toplevel (5) as @home subvolume (see the [github page](https://github.com/teejee2008/timeshift)).
 
