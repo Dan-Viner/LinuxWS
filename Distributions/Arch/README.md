@@ -141,6 +141,22 @@ usefull configurations:
 * `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
 * Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
 
+### Snap packages
+To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
+	
+	snap install sublime pycharm-community android-studio spotify
+
+**A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation. Read more about snap confinements [here](https://snapcraft.io/docs/snap-confinement)
+
+### Timeshift
+Available as an aur package.
+
+I found that I had the need also to install `cronie` in order for the app to work. I don't know why it wasn't installed by default as a dependency.
+
+Because I'm using BTRFS I also included the 'home' subvolume. Note that timeshift only support it if the subvolume was created on the toplevel (5) as @home subvolume (see the [github page](https://github.com/teejee2008/timeshift)).
+
+Timeshift also recommanding the usage of the BTRFS's qgroups. but they need to be enabled first. see [this page](https://btrfs.wiki.kernel.org/index.php/Quota_support) for the full explanation. For me using `sudo btrfs quota enable /` just worked perfectly.
+
 ## Awesome wm
 
 **awesome** is a windows manager, and not a full desktop environment, meaning that it doesn't come with many (or any) additional applications that making the user experience easier, such as panel, notifications, settings (to control sound, monitors, power management and everything else) etc.
@@ -154,10 +170,7 @@ This [youtube video](https://www.youtube.com/watch?v=Obzf9ppODJU&t=500s) explain
 * **The Tiling method**: the 2 basic types are manual and dynamic TWM. Manual TWM gives you a choice each time to split a window verticaly or horizontaly. Dynamic TWM, howere, comes with a predefined set of tiling method that will determine where the next window is going to be opened. awesom is a dynamic WM that comes with a set of 12 predefined tiling options (and a floating option as well).
 * **The multiple-monitor handling method**: some WM shows the same workspces in all monitors, so if you're on WS 1 in monitor 1 as well as in monitor 2 - you'll see the same set of windows. However, other WMs, like awesome, have different set of WSs (or tags), so WS 1 in each monitor is actualy a different WS. There is usualy a key combination for trnsfaring a window between monitors, in such TWM.
 
-
 Awesome comes with a pre-installed panel, but the user will have to manually install things like: app-launcher (e.g. dmenu), terminal-emulator (xterm is the default for awesome) and other applications.
-
-
 
 Basic key-bindings:
 
@@ -197,22 +210,6 @@ Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` 
 `beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")` becomes `beautiful.init(~/.config/awesome/themes/default/theme.lua)`
 
 **Wallpaper**: to change the wallpaper, change the path of theme.wallpaper in theme.lua file.
-
-### Snap packages
-To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
-	
-	snap install sublime pycharm-community android-studio spotify
-
-**A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation. Read more about snap confinements [here](https://snapcraft.io/docs/snap-confinement)
-
-### Timeshift
-Available as an aur package.
-
-I found that I had the need also to install `cronie` in order for the app to work. I don't know why it wasn't installed by default as a dependency.
-
-Because I'm using BTRFS I also included the 'home' subvolume. Note that timeshift only support it if the subvolume was created on the toplevel (5) as @home subvolume (see the [github page](https://github.com/teejee2008/timeshift)).
-
-Timeshift also recommanding the usage of the BTRFS's qgroups. but they need to be enabled first. see [this page](https://btrfs.wiki.kernel.org/index.php/Quota_support) for the full explanation. For me using `sudo btrfs quota enable /` just worked perfectly.
 
 ### Gnome
 	sudo dnf install gnome-tweak-tool dconf-editor
