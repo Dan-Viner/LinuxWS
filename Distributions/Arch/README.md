@@ -111,7 +111,9 @@ Anyway, it's recommanded (for some reason) to not mount the top folder in which 
 
 ### Checking free-space
 
-On non-RAID system: The first command: `sudo btrfs fi show` shows the allocated space out of the total available space ("used" means "allocated" and not really used). The second command: `btrfs fi df /` shows the used space out of the allocated space.
+On non-RAID system: The first command: `sudo btrfs fi show` shows the allocated space out of the total available space ("used" means "allocated" and not really used). The second command: `btrfs fi df /` shows the used space out of the allocated space (for full explanation check [this](https://btrfs.wiki.kernel.org/index.php/FAQ)).
+
+To enable 'quota' on BTRFS type `btrfs quota enable <path>` and check the output of `btrfs qgroup show <path>` (see the [full article](https://btrfs.wiki.kernel.org/index.php/Quota_support))
 
 ## Applications
 
