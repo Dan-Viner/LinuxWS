@@ -45,7 +45,9 @@ In order for the changes to take affect the user need to restart the X-server by
 
 ### Sound support
 
-I installed `pulseaudio` and `alsa-utils` and everything worked fine
+`pacman -S alsa-utils pulseaudio pavucontrol`
+
+alsa-utils should enable applications like `alsamixer` but this app didn't really help me with sound issues. `pulseaudio` is probably crucial for sound drivers, and `pavucontrol` is a gui helper for controling the output/input devices and the volume levels.
 
 ### Pacman basic usage
 `pacman -Syyy` - Refresh sources
