@@ -82,7 +82,7 @@ The `xorg-server`is the basic X-server package, that is probably already install
 
 I'm using awesome WM which has some build-in opacity capabilities, so basically nothing is needed beside a composite manager (xcompmgr in this case) as explained in [this page](https://wiki.archlinux.org/index.php/Awesome#Transparency). However, check [this page](https://wiki.archlinux.org/index.php/Xterm#Automatic_transparency) for explanation on xterm-transparency and [this page](https://wiki.archlinux.org/index.php/Per-application_transparency) for explanation how to achieve per-window transparency (in short - for basic transparency you need the `transset-df` AUR package and the `devilspie` to achieve per-window transparency).
 
-In awesome WM you can set the transparency for focused and unfocused windows using the following syntax in the rc.lua file:
+In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and then you can set the transparency for focused and unfocused windows using the following syntax in the rc.lua file:
 
 	client.connect_signal("focus", function(c)
                               c.border_color = beautiful.border_focus
