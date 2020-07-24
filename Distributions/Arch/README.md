@@ -228,6 +228,23 @@ The additional description + group options are to set an awesome help-menu entry
 
 	{ rule = { name = "MPlayer" },
   	properties = { floating = true } }
+	
+**startup applications**: start applications using `awful.util.spawn()` in the rc.lua file. An example from my configurations:
+
+	do
+	  local cmds =
+	  {
+	    "xcompmgr"
+	    "firefox",
+	    "xterm",
+	    "pycharm-community"
+	  }
+	
+	  for _,i in pairs(cmds) do
+	    awful.util.spawn(i)
+	  end
+	end
+Note that "xcompmgr" is required in order for the opacity to work on start-up without the need to call `xcompmgr &` manually each time.
 
 ### Applications for windows manager
 
