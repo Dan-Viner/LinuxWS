@@ -93,7 +93,6 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
                                 c.opacity = 0.7
                              end)
 
-
 ### HiDPI monitors
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
 
@@ -230,6 +229,23 @@ The additional description + group options are to set an awesome help-menu entry
 
 	{ rule = { name = "MPlayer" },
   	properties = { floating = true } }
+
+**opacity**: in order to enable opacity, you first need to install a composire manager, as mentioned in the "Transparency" section above. Awesome comes with builed-in opacity capabilities, so not much else is needed. So, install `xcompmgr` and activate it by running `xcompmgr &`. You'll also need to update the rc.lua file with the desired opacity rules. These are my settings:
+
+	client.connect_signal("focus", function(c)
+                              c.border_color = beautiful.border_focus
+			      if c.class and c.class:lower():find("firefox") then
+			      		c.opacity = 0.9
+			      elseif if c.class and c.class:lower():find("feh") then
+			      		c.opacity = 1
+			      else
+                              		c.opacity = 0.8
+			      end
+                           end)
+	client.connect_signal("unfocus", function(c)
+                                c.border_color = beautiful.border_normal
+                                c.opacity = 0.7
+                             end)
 	
 **startup applications**: start applications using `awful.util.spawn()` in the rc.lua file. An example from my configurations:
 
