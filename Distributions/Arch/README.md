@@ -63,7 +63,7 @@ Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xo
                 Option "XkbVariant" "qwerty"
                 Option "XkbOptions" "grp:alt_shift_toggle"
 	EndSection
-In order for the changes to take affect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
+In order for the changes to take effect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
 
 
 `TODO` - add ctrl+c, ctrl+v + clipboard manager, brightness control + redshift, HiDPI monitors, multiple monitors, power management, notifications, bash key-bindings (search history based on a prefix), yay (yarout)
