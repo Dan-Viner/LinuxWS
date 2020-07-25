@@ -1,5 +1,7 @@
 ## Awesome wm
 
+### Overview
+
 **awesome** is a windows manager, actually, not a full desktop environment, meaning that it doesn't come with many (or any) additional applications that making the user experience easier, such as panel, notifications, settings (to control sound, monitors, power management and everything else) etc.
 
 The main reason (for me) to use a windows manger and not a desktop environment is for learning purposes. The fact that you don't have all this applications installed by default- ecourages self-invastigations.
@@ -13,7 +15,7 @@ This [youtube video](https://www.youtube.com/watch?v=Obzf9ppODJU&t=500s) explain
 
 Awesome comes with a pre-installed panel, but the user will have to manually install things like: app-launcher (e.g. dmenu), terminal-emulator (xterm is the default for awesome) and other applications.
 
-Basic key-bindings:
+### Basic key-bindings
 
 * `<mod> + s`  - shows the help menu for basic operations
 * `<mod> + r`  - run prompt
@@ -81,14 +83,3 @@ The additional description + group options are to set an awesome help-menu entry
 	  end
 	end
 Note that "xcompmgr" is required in order for the opacity to work on start-up without the need to call `xcompmgr &` manually each time.
-
-### Applications for windows manager
-
-First we'll want to install an application launcher. "dmenu" is a good option.
-
-	pacman -S dmenu
-then run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d` keybinding by adding these lines in the rc.lua (under "Key bindings")
-
-**image viewer** - [feh](https://wiki.archlinux.org/index.php/Feh) (available via pacman)
-
-Add app viewer in awesome menu, enlarge fonts, change wallpaper, transparicy. Install notification manager, 
