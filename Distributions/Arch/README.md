@@ -39,7 +39,7 @@ some notes:
 
 `sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
 
-### Aur packages
+### AUR packages
 
 Many packages are not available directly through pacman and should be installed semi-menualy from aur - Arch User Repository. It's best to search each package in the arch wiki or the official package site, to find the exact installaion process of this app.
 
@@ -50,6 +50,13 @@ The basic installation process is:
 	makepkg -si
 
 Note: once the package is installed, it is recognized by pacman, and can be removed using "pacman -R"
+
+### Snap packages
+To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
+	
+	snap install sublime pycharm-community android-studio spotify
+
+**A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation. Read more about snap confinements [here](https://snapcraft.io/docs/snap-confinement)
 
 ### Adding hebrew support (on X-server)
 
@@ -162,12 +169,18 @@ usefull configurations:
 * `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
 * Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
 
-### Snap packages
-To use snap, after installation, one must first enable/start the service with `sudo systemctl start snapd.socket`
-	
-	snap install sublime pycharm-community android-studio spotify
+### Apps launcher
 
-**A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation. Read more about snap confinements [here](https://snapcraft.io/docs/snap-confinement)
+"dmenu" is a good option for an app-launcher.
+Installation: 
+	
+	pacman -S dmenu
+
+run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d`.
+
+### image viewer
+
+[feh](https://wiki.archlinux.org/index.php/Feh) (available via pacman)
 
 ### Timeshift
 Available as an aur package.
