@@ -11,12 +11,13 @@ a recommanded arch linux installation instruction videos:
 some notes:
 
 * <u>wifi</u>: in the installation process use iw and iwd (check this [arch-wiki-page](https://wiki.archlinux.org/index.php/Iwd)). afterwords you'll probably install networkManager in your machine, so use it instead. set wifi connection following these steps:
-``		nmcli r (verify that all are enabled, if wifi is off, turn it on using "nmcli r wifi on")
+		
+		nmcli r (verify that all are enabled, if wifi is off, turn it on using "nmcli r wifi on")
 		nmcli d wifi rescan
 		nmcli d wifi list
-		nmcli d wifi connect <NETWORK> password <PASSWORD>.``
-you can also use the `nmtui` command as an easy GUI alternative.
-* <u>timedatectl</u>: verify your system is using the UTC and not the local time zone using:
+		nmcli d wifi connect <NETWORK> password <PASSWORD>.
+	you can also use the `nmtui` command as an easy GUI alternative.
+* timedatectl: verify your system is using the UTC and not the local time zone using:
 
 		timedatectl status (system clock should be syncronized).
 	if not, use 
