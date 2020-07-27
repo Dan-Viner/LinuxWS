@@ -50,7 +50,7 @@ The additional description + group options are to set an awesome help-menu entry
 	{ rule = { name = "MPlayer" },
   	properties = { floating = true } }
 
-**opacity**: in order to enable opacity, you first need to install a composire manager, as mentioned in the "Transparency" section above. Awesome comes with builed-in opacity capabilities, so not much else is needed. So, install `xcompmgr` and activate it by running `xcompmgr &`. You'll also need to update the rc.lua file with the desired opacity rules. These are my settings:
+**opacity**: in order to enable opacity, you first need to install a composire manager. For example `sudo pacman -S xorg-server xdpyinfo xcompmgr` (see https://wiki.archlinux.org/index.php/Xcompmgr). Awesome comes with builed-in opacity capabilities, so not much else is needed. So, install `xcompmgr` and activate it by running `xcompmgr &`. You'll also need to update the rc.lua file with the desired opacity rules. These are my settings:
 
 	client.connect_signal("focus", function(c)
                               c.border_color = beautiful.border_focus
@@ -66,6 +66,12 @@ The additional description + group options are to set an awesome help-menu entry
                                 c.border_color = beautiful.border_normal
                                 c.opacity = 0.7
                              end)
+
+For extended capabilities I also used [this github page](https://github.com/blueyed/awesome-opacity). The init file (which is also available in this repository) contain all the necessary opacity controls. Then I added these key-bindings for dynamic control over the opacity in the current window using "Mod,Shift,+/-":
+
+	-- my client-specific key-bindings
+	awful.key({ modkey, "Shift"}, "-", function(c) opacity.adjust(c, -0.05) end),
+	awful.key({ modkey, "Shift"}, "=", function(c) opacity.adjust(c, 0.05) end),
 	
 **startup applications**: start applications using `awful.util.spawn()` in the rc.lua file. An example from my configurations:
 
