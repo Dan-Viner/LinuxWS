@@ -36,21 +36,25 @@ To enable configuration, copy the configuration file from "/etc/xdg/awesome/rc.l
 Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` to the `"~/.config/awesome/"` folder, and update the new path in config file (`"~/.config/awesome/rc.lua"`):
 `beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")` becomes `beautiful.init(~/.config/awesome/themes/default/theme.lua)`
 
-**Wallpaper**: to change the wallpaper, change the path of theme.wallpaper in theme.lua file.
+#### Wallpaper
+To change the wallpaper, change the path of theme.wallpaper in theme.lua file.
 
-**key-bindings**: to add a user-defined key-binding you need to add an awful.key in the key binding, and specify the key combination and the function to run. Here's an exmple for running `dmenu` using Mod+d:
+#### key-bindings
+To add a user-defined key-binding you need to add an awful.key in the key binding, and specify the key combination and the function to run. Here's an exmple for running `dmenu` using Mod+d:
 
 	--My bindings
 	awful.key({ modkey }, "d", function () awful.spawn("dmenu_run") end,
 	          {description = "open dmenu", group = "my keybindings"})
 The additional description + group options are to set an awesome help-menu entry.
 
-**floating apps**: to set some apps to always be open in a floating mode - you need to set the appropriate rule in the rc.lua file. Usually there are already some applications that are set by default with this option, so you can just search for "floating clients" and add the apps to the "instance" list. The basic form of the rule is:
+### floating apps
+To set some apps to always be open in a floating mode - you need to set the appropriate rule in the rc.lua file. Usually there are already some applications that are set by default with this option, so you can just search for "floating clients" and add the apps to the "instance" list. The basic form of the rule is:
 
 	{ rule = { name = "MPlayer" },
   	properties = { floating = true } }
 
-**opacity**: in order to enable opacity, you first need to install a composire manager. For example `sudo pacman -S xorg-server xdpyinfo xcompmgr` (see https://wiki.archlinux.org/index.php/Xcompmgr). Awesome comes with builed-in opacity capabilities, so not much else is needed. So, install `xcompmgr` and activate it by running `xcompmgr &`. You'll also need to update the rc.lua file with the desired opacity rules. These are my settings:
+#### opacity
+In order to enable opacity, you first need to install a composire manager. For example `sudo pacman -S xorg-server xdpyinfo xcompmgr` (see https://wiki.archlinux.org/index.php/Xcompmgr). Awesome comes with builed-in opacity capabilities, so not much else is needed. So, install `xcompmgr` and activate it by running `xcompmgr &`. You'll also need to update the rc.lua file with the desired opacity rules. These are my settings:
 
 	client.connect_signal("focus", function(c)
                               c.border_color = beautiful.border_focus
@@ -73,7 +77,8 @@ For extended capabilities I also used [this github page](https://github.com/blue
 	awful.key({ modkey, "Shift"}, "-", function(c) opacity.adjust(c, -0.05) end),
 	awful.key({ modkey, "Shift"}, "=", function(c) opacity.adjust(c, 0.05) end),
 	
-**startup applications**: start applications using `awful.util.spawn()` in the rc.lua file. An example from my configurations:
+#### startup applications
+Start applications using `awful.util.spawn()` in the rc.lua file. An example from my configurations:
 
 	do
 	  local cmds =
