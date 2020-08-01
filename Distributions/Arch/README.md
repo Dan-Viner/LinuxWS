@@ -192,6 +192,14 @@ Example with **absolute** coordinates:
 	    Option      "Position" "0 0"
 	EndSection
 
+I didn't try **virtual** coordinates...
+
+#### Metod 4 - xrandr
+
+Exmples:
+* native resolution and relative coordinates: `xrandr --output VGA1 --auto --output HDMI1 --auto --right-of VGA1` (the `--auto` is to use the native resolution)
+* fixed resolution and absolute coordinates: `xrandr --output VGA1 --mode 1024x768 --pos 1920x0 --output HDMI1 --mode 1920x1080 --pos 0x0`
+
 ## BTRFS
 
 COW file-system.
