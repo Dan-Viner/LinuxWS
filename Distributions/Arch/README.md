@@ -109,13 +109,14 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
                                 c.opacity = 0.7
                              end)
 
-## Monitors
+## Monitors - Xorg
 
 ### Usefull commands
 
 * check available monitors and their parameters (display-identifier, connection status, active and available resolutions, physical dimensions) - `xrandr`
 * check resolusion info - `xdpyinfo | grep -B 2 resolution`
 * restart x-server - `sudo systemctl restart display-manager`
+* if some syntax error was made in the configuration files and the system failed to restart - load tty with `Alt+shift+F2` and run `startx`. It will tell you where the problem was, and then you can fix it with some text-editor.
 * note: I tried `xrandr --dpi <NEW_DPI>` to dynamically change the monitor's DPI but it didn't do anything. It just changed the monitor's alleged dimensions, so that, with the current resolution it will give the desired DPI.
 
 ### Recommandation
