@@ -123,7 +123,9 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 
 At the end of day, I wasn't convinced that any method is really different than simply changing the resolution, so this is probably the most stright-forward solution. It's also a clean solution, since it's done automatically on reboot in you shouldn't run any additional commands later.
 
-To change the relative position of the monitors- it's possible to change the `/etc/X11/xorg.conf.d/...` configurations as a static solution, or change it in an already active session with `xrandr --output <1st monitor-identifier> --output <2nd monitor-identifier> --auto --right-of <1st monitor-identifier>`
+To change the relative position of the monitors- it's possible to change the `/etc/X11/xorg.conf.d/...` configurations as a static solution, or change it in an already active session with `xrandr -output <2nd monitor-identifier> --auto --right-of <1st monitor-identifier>`.
+
+Adding the `DisplaySize <width> <height>` helps in a single-monitor setup, but might confuse the system in case of multiple monitors (it takes sometimes only the second monitor's dimensions as the dimensions of the entire setup but adds the resolution, so the result doesn't make sense...)
 
 ### HiDPI monitors
 Arch-wiki page: https://wiki.archlinux.org/index.php/HiDPI
