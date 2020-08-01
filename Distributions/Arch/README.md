@@ -116,6 +116,11 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 * check available monitors and their parameters (display-identifier, connection status, active and available resolutions, physical dimensions) - `xrandr`
 * check resolusion info - `xdpyinfo | grep -B 2 resolution`
 * restart x-server - `sudo systemctl restart display-manager`
+* note: I tried `xrandr --dpi <NEW_DPI>` to dynamically change the monitor's DPI but it didn't do anything. It just changed the monitor's alleged dimensions, so that, with the current resolution it will give the desired DPI.
+
+### Recommandation
+
+
 
 ### HiDPI monitors
 HiDPI monitors are monitors with high resolution comparing to a their relative small dimensions, resolting in a high pixel density (high **D**ots **P**er **I**nch) and small pixel size. The main issue that arises here, is that many applications defined their display based on the amount of pixels, which means that the display will appear small and sometimes even unusable.
@@ -146,30 +151,15 @@ Before login, Xorg reads the configuration files from `/etc/X11/xorg.conf.d/`. Y
 
 I found that, for some reason, just writing down the **native resolution and dimensions** already help to improve performance. It's very weird, since it should have done this automatically, but anyway, if the display size is still too small - you can change the resolution to any other of the possible screen resolution that appear on the list in the `xrandr` command.
 
+#### Method 4 - xrandr scaling
 
-to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
 
-	xdpyinfo | grep -B 2 resolution
-and check the physical dimensions using:
 
-	xrandr | grep -w connected
-then you just need to devide the resolution by the dimensions to get the native DPI for your monitor.
-
-change the DPI using the following command:
-
-	xrandr --dpi <NEW_DPI>
-
-Notes: you'll probably need to restrt gui for the changes to take effect.
 
 ### Multiple monitors
-check this [arch wiki page](https://wiki.archlinux.org/index.php/Multihead)
+Arch wiki page: https://wiki.archlinux.org/index.php/Multihead
 
-see available monitors using:
 
-	xrandr -q
-activate specific monitor using:
-
-	xrandr --output <monitor name, e.g. HDMI1> --auto
 
 ## BTRFS
 
