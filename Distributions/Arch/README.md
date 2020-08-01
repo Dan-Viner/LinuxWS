@@ -115,6 +115,7 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 
 * check available monitors and their parameters (display-identifier, connection status, active and available resolutions, physical dimensions) - `xrandr`
 * check resolusion info - `xdpyinfo | grep -B 2 resolution`
+* restart x-server - `sudo systemctl restart display-manager`
 
 ### HiDPI monitors
 HiDPI monitors are monitors with high resolution comparing to a their relative small dimensions, resolting in a high pixel density (high **D**ots **P**er **Inch**) and small pixel size. The main issue that arises here, is that many applications defined their display based on the amount of pixels, which means that the display will appear small and sometimes even unusable.
