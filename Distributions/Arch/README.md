@@ -118,15 +118,34 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 * restart x-server - `sudo systemctl restart display-manager`
 
 ### HiDPI monitors
-HiDPI monitors are monitors with high resolution comparing to a their relative small dimensions, resolting in a high pixel density (high **D**ots **P**er **Inch**) and small pixel size. The main issue that arises here, is that many applications defined their display based on the amount of pixels, which means that the display will appear small and sometimes even unusable.
+HiDPI monitors are monitors with high resolution comparing to a their relative small dimensions, resolting in a high pixel density (high **D**ots **P**er **I**nch) and small pixel size. The main issue that arises here, is that many applications defined their display based on the amount of pixels, which means that the display will appear small and sometimes even unusable.
 
 **Note**: I don't know if it matters, but for some reason, Xorg always sets DPI to 96 as described in [this bug report](https://bugs.freedesktop.org/show_bug.cgi?id=23705). I think it just "fixes" the physical dimensions to match this DPI.
 
 As far as I understand, there is no difference between changing the DPI and changing the resolution, as they're both directly connected trough the physical dimensions of the monitor. 
 
-#### Method 1 - system-wide scaling
+#### Method 1 - system-wide scaling (per desktop environment)
 
-Scaling the display seems be the most obvious solution, but apparently this is not so easy to achieve. According to this [arch wiki](https://wiki.archlinux.org/index.php/HiDPI) such scaling is available in Desktop environments such as Cinnamon, KDE Plasme and Xfce. Integer scaling is also available in Gnome via Tweak-Tool and to achieve fractional scaling you can set the scaling via xradr with something like: `xrandr --output <Display-identifier> --scale 1.25x1.25` (Note: this is for zoom out, so **the larger the xrandr scale - the smaller the display**)
+Scaling the display seems be the most obvious solution, but apparently this is not so easy to achieve. According to this [arch wiki](https://wiki.archlinux.org/index.php/HiDPI) such scaling is available in Desktop environments such as Cinnamon, KDE Plasme and Xfce (according to [this forum](https://www.reddit.com/r/linux/comments/cqtfxs/xfce4_the_day_is_finally_here_perfect_hidpi/)). Integer scaling is also available in Gnome via Tweak-Tool and to achieve fractional scaling you can set the scaling via xradr with something like: `xrandr --output <Display-identifier> --scale 1.25x1.25` (Note: this is for zoom out, so **the larger the xrandr scale - the smaller the display**)
+
+#### Method 2 - per-app scaling
+
+[This arch-wiki page](https://wiki.archlinux.org/index.php/HiDPI) contain much information about how to get scaling in different applications such as Firefox, MATLAB and Spotify. But this is not a system-wide solution and it requires many configurations.
+
+#### Nethod 3 - chnaging the screen resolution (Xorg)
+
+Before login, Xorg reads the configuration files from `/etc/X11/xorg.conf.d/`. You can change the screen resolution there in the monitors section (see full manual page of Xorg.conf in [here](https://www.x.org/releases/current/doc/man/man5/xorg.conf.5.xhtml)). For example, here's a possible configuration for monitor eDP1 (you can check the monitor identifier by the `xrandr` command) with dimensions of 290x170 (mm^2) and resolution of 1920x1080:
+
+	Section "Monitor"
+	### Monitor Identity - Typically HDMI-0 or DisplayPort-0
+    	    Identifier    "eDP1" 
+	### Setting Resolution and Modes
+	    Option "PreferredMode" "1920x1080"
+	    DisplaySize 290 170
+	EndSection
+
+I found that, for some reason, just writing down the **native resolution and dimensions** already help to improve performance. It's very weird, since it should have done this automatically, but anyway, if the display size is still too small - you can change the resolution to any other of the possible screen resolution that appear on the list in the `xrandr` command.
+
 
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
 
