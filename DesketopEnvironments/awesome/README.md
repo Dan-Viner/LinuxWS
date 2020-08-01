@@ -37,7 +37,7 @@ Enable theme modifications by copying the `"/usr/share/awesome/themes/default"` 
 `beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")` becomes `beautiful.init(~/.config/awesome/themes/default/theme.lua)`
 
 #### Font size
-Change the titles font: in the theme.lua file, change the `theme.font` variable (I'm using "sans 11").
+After changing the resolution and scaling of the monitors- you can change the titles font in the theme.lua file, under `theme.font` variable (I'm using "sans 11").
 
 #### Wallpaper
 To change the wallpaper, change the path of theme.wallpaper in theme.lua file.
