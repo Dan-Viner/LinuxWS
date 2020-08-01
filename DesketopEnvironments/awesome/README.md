@@ -97,3 +97,9 @@ Start applications using `awful.util.spawn()` in the rc.lua file. An example fro
 	  end
 	end
 Note that "xcompmgr" is required in order for the opacity to work on start-up without the need to call `xcompmgr &` manually each time.
+
+#### Remove unused gaps
+
+In some applications, such as Xterm I got some unused gaps between the window and screen boundaries. To fix it you should add the following line to the `properties` section in the `awful.rules.rules` table in the rc.lua configuration file:
+
+	size_hints_honor = false
