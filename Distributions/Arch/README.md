@@ -109,7 +109,19 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
                                 c.opacity = 0.7
                              end)
 
-### HiDPI monitors
+### Monitors
+
+#### HiDPI monitors
+HiDPI monitors are monitors with high resolution comparing to a their relative small dimensions, resolting in a high pixel density (high **D**ots **P**er **Inch**) and small pixel size. The main issue that arises here, is that many applications defined their display based on the amount of pixels, which means that the display will appear small and sometimes even unusable.
+
+**Note**: I don't know if it matters, but for some reason, Xorg always sets DPI to 96 as described in [this bug report](https://bugs.freedesktop.org/show_bug.cgi?id=23705). I think it just "fixes" the physical dimensions to match this DPI.
+
+As far as I understand, there is no difference between changing the DPI and changing the resolution, as they're both directly connected trough the physical dimensions of the monitor. 
+
+##### Method 1 - system-wide scaling
+
+Scaling the display seems be the most obvious solution, but apparently this is not so easy to achieve. According to this [arch wiki](https://wiki.archlinux.org/index.php/HiDPI) such scaling is available in Desktop environments such as Cinnamon, KDE Plasme and Xfce. Integer scaling is also available in Gnome via Tweak-Tool and to achieve fractional scaling you can set the scaling via xradr with something like: `xrandr --output <Display-identifier> --scale 1.25x1.25` (Note: this is for zoom out, so **the larger the xrandr scale - the smaller the display**)
+
 to set the correct DPI for your monitors you just need to know its resolution and physical dimensions (in inchs). to check the native resolution typs:
 
 	xdpyinfo | grep -B 2 resolution
@@ -124,7 +136,7 @@ change the DPI using the following command:
 
 Notes: you'll probably need to restrt gui for the changes to take effect.
 
-### Multiple monitors
+#### Multiple monitors
 check this [arch wiki page](https://wiki.archlinux.org/index.php/Multihead)
 
 see available monitors using:
