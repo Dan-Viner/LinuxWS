@@ -120,7 +120,9 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 
 ### Recommandation
 
+At the end of day, I wasn't convinced that any method is really different than simply changing the resolution, so this is probably the most stright-forward solution. It's also a clean solution, since it's done automatically on reboot in you shouldn't run any additional commands later.
 
+To change the relative position of the monitors- it's possible to change the `/etc/X11/xorg.conf.d/...` configurations as a static solution, or change it in an already active session with `xrandr --output <1st monitor-identifier> --output <2nd monitor-identifier> --auto --right-of <1st monitor-identifier>`
 
 ### HiDPI monitors
 Arch-wiki page: https://wiki.archlinux.org/index.php/HiDPI
@@ -157,7 +159,7 @@ I found that, for some reason, just writing down the **native resolution and dim
 
 The simple command `xrandr --output eDP1 --scale 1.25x1.25` should allow fractional scaling. As mentioned above, it's a **zoom-out** scaling, meaning that the larger the scaling value- the smaller the display.
 
-The main issue with this approach is that sometimes when it used for enlarging the display (i.e. with a scaling factor smaller than 1) the image gets blurry or not well fits to the monitor dimensions. Therefor it's recommanded to use this option only for downscaling (i.e. with scaling factor larger than 1)
+The main issue with this approach is that the scaling doesn't work that well and the display is a bit ruined. The situation is even worse when using sometimes when it used for enlarging the display (i.e. with a scaling factor smaller than 1) the image gets blurry or not well fits to the monitor dimensions. Therefor it's recommanded to use this option only for downscaling (i.e. with scaling factor larger than 1)
 
 ### Multiple monitors
 Arch wiki page: https://wiki.archlinux.org/index.php/Multihead
