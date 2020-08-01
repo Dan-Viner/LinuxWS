@@ -121,11 +121,11 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 
 ### Recommandation
 
-At the end of day, I wasn't convinced that any method is really different than simply changing the resolution, so this is probably the most stright-forward solution. It's also a clean solution, since it's done automatically on reboot in you shouldn't run any additional commands later.
+A. **changing the resolution**- At the end of day, I wasn't convinced that any method is really different than simply changing the resolution, so this is probably the most stright-forward solution. I also didn't sense any performance degradation due to this change. Possibly because my eye is not sensative enough, but it also might be because the actual physical resolution obviously remained the same... It's also a clean solution, since it's done automatically on reboot in you shouldn't run any additional commands later.
 
 To change the relative position of the monitors- it's possible to change the `/etc/X11/xorg.conf.d/...` configurations as a static solution, or change it in an already active session with `xrandr -output <2nd monitor-identifier> --auto --right-of <1st monitor-identifier>`.
 
-Adding the `DisplaySize <width> <height>` helps in a single-monitor setup, but might confuse the system in case of multiple monitors (it takes sometimes only the second monitor's dimensions as the dimensions of the entire setup but adds the resolution, so the result doesn't make sense...)
+B. **display size** - A better solution in a single-monitor setup is to keep the native resolution and add the `DisplaySize <width> <height>` in the xorg configuration files (_I don't understand why it's not the default behavior_). However, in the case of multiple-monitors setup it confuses the system (It' probably a bug, but it sometimes takes only the second monitor's dimensions as the dimensions of the entire setup but adds the resolution, so the result doesn't make sense...)
 
 ### HiDPI monitors
 Arch-wiki page: https://wiki.archlinux.org/index.php/HiDPI
