@@ -123,6 +123,8 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 
 
 ### HiDPI monitors
+Arch-wiki page: https://wiki.archlinux.org/index.php/HiDPI
+
 HiDPI monitors are monitors with high resolution comparing to a their relative small dimensions, resolting in a high pixel density (high **D**ots **P**er **I**nch) and small pixel size. The main issue that arises here, is that many applications defined their display based on the amount of pixels, which means that the display will appear small and sometimes even unusable.
 
 **Note**: I don't know if it matters, but for some reason, Xorg always sets DPI to 96 as described in [this bug report](https://bugs.freedesktop.org/show_bug.cgi?id=23705). I think it just "fixes" the physical dimensions to match this DPI.
@@ -131,11 +133,11 @@ As far as I understand, there is no difference between changing the DPI and chan
 
 #### Method 1 - system-wide scaling (per desktop environment)
 
-Scaling the display seems be the most obvious solution, but apparently this is not so easy to achieve. According to this [arch wiki](https://wiki.archlinux.org/index.php/HiDPI) such scaling is available in Desktop environments such as Cinnamon, KDE Plasme and Xfce (according to [this forum](https://www.reddit.com/r/linux/comments/cqtfxs/xfce4_the_day_is_finally_here_perfect_hidpi/)). Integer scaling is also available in Gnome via Tweak-Tool and to achieve fractional scaling you can set the scaling via xradr with something like: `xrandr --output <Display-identifier> --scale 1.25x1.25` (Note: this is for zoom out, so **the larger the xrandr scale - the smaller the display**)
+Scaling the display seems be the most obvious solution, but apparently this is not so easy to achieve. According to arch-wiki such scaling is available in Desktop environments such as Cinnamon, KDE Plasme and Xfce (according to [this forum](https://www.reddit.com/r/linux/comments/cqtfxs/xfce4_the_day_is_finally_here_perfect_hidpi/)). Integer scaling is also available in Gnome via Tweak-Tool and to achieve fractional scaling you can set the scaling via xradr with something like: `xrandr --output <Display-identifier> --scale 1.25x1.25` (Note: this is for zoom out, so **the larger the xrandr scale - the smaller the display**)
 
 #### Method 2 - per-app scaling
 
-[This arch-wiki page](https://wiki.archlinux.org/index.php/HiDPI) contain much information about how to get scaling in different applications such as Firefox, MATLAB and Spotify. But this is not a system-wide solution and it requires many configurations.
+The arch-wiki page contains much information about how to get scaling in different applications such as Firefox, MATLAB and Spotify. But this is not a system-wide solution and it requires many configurations.
 
 #### Nethod 3 - chnaging the screen resolution (Xorg)
 
@@ -153,13 +155,42 @@ I found that, for some reason, just writing down the **native resolution and dim
 
 #### Method 4 - xrandr scaling
 
+The simple command `xrandr --output eDP1 --scale 1.25x1.25` should allow fractional scaling. As mentioned above, it's a **zoom-out** scaling, meaning that the larger the scaling value- the smaller the display.
 
-
+The main issue with this approach is that sometimes when it used for enlarging the display (i.e. with a scaling factor smaller than 1) the image gets blurry or not well fits to the monitor dimensions. Therefor it's recommanded to use this option only for downscaling (i.e. with scaling factor larger than 1)
 
 ### Multiple monitors
 Arch wiki page: https://wiki.archlinux.org/index.php/Multihead
 
+#### Method 1-3: Xorg
 
+Xorg have 3 options for positioning the display of the different monitors: a. **relative** - where should each monitor be located w.r.t another monitot. b. **absolute** - start counting pixels from the top left corner (with no negative values allowed)- in what pixel exactly should each monitor be located. c. **virtual** - combining all the moitors to a single virtual monitors.
+
+Example of **relative** coordinates:
+
+	Section "Monitor"
+	    Identifier  "VGA1"
+	    Option      "Primary" "true"
+	EndSection
+	
+	Section "Monitor"
+	    Identifier  "HDMI1"
+	    Option      "LeftOf" "VGA1"
+	EndSection
+	
+Example with **absolute** coordinates:
+
+	Section "Monitor"
+	    Identifier  "VGA1"
+	    Option      "PreferredMode" "1024x768"
+	    Option      "Position" "1920 312"
+	EndSection
+	
+	Section "Monitor"
+	    Identifier  "HDMI1"
+	    Option      "PreferredMode" "1920x1080"
+	    Option      "Position" "0 0"
+	EndSection
 
 ## BTRFS
 
