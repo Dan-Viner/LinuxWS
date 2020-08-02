@@ -267,6 +267,10 @@ Installation:
 
 run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d`.
 
+### Vim
+
+* Copy-paste between external applications and vim: it's recommanded to install `gvim` instead of `vim` (see [this tutorial](https://www.youtube.com/watch?v=E_rbfQqrm7g)). Then you can use the "+" register for copying and pasting like this: copy - `"+y`, paste- `"+p`
+
 ### Clipboard manager
 
 See this [arch-wiki](https://wiki.archlinux.org/index.php/Clipboard) to understand the difference between Primary (auto selection) and Clipboard (explicit copy), and for clipboard-manager suggestsions.
