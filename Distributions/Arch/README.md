@@ -113,6 +113,7 @@ In awesome WM you first need to activate xcompmgr by running `xcompmgr &` and th
 
 ### Usefull commands
 
+* Mirroring: `xrandr --output HDMI3 --same-as LVDS1`
 * check available monitors and their parameters (display-identifier, connection status, active and available resolutions, physical dimensions) - `xrandr`
 * check resolusion info - `xdpyinfo | grep -B 2 resolution`
 * restart x-server - `sudo systemctl restart display-manager`
