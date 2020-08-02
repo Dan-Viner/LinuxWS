@@ -15,6 +15,8 @@ This [youtube video](https://www.youtube.com/watch?v=Obzf9ppODJU&t=500s) explain
 
 Awesome comes with a pre-installed panel, but the user will have to manually install things like: app-launcher (e.g. dmenu), terminal-emulator (xterm is the default for awesome) and other applications.
 
+Read the [FAQ](https://awesomewm.org/doc/api/documentation/90-FAQ.md.html) to start understanding how to work with awesome.
+
 ### Basic key-bindings
 
 * `<mod> + s`  - shows the help menu for basic operations
