@@ -277,6 +277,13 @@ See this [arch-wiki](https://wiki.archlinux.org/index.php/Clipboard) to understa
 
 For me, nothing worked beside [Clipit](https://github.com/CristianHenzel/ClipIt). Installaion is simply as an AUR package (make sure the "requirements" list is met) and than run clipit (probably should add this as a startup application).
 
+**Note**: auto-pasting simply calls "ctrl+v" command, so in order for this to work on the terminal emulator- you have to change the key-binding of pasting to ctrl+v. For xterm you can add in the .Xresources file:
+
+	! use ctrl-v to paste (important for clipit)
+	XTerm.vt100.translations: #override \n\
+	    Ctrl <Key>V: insert-selection(CLIPBOARD)
+
+
 Settings:
 1. I chose to use both primary and copy, synchronize clipboard and auto-paste options.
 2. run clipboard manually once to check if all the key-board shortcuts are O.K and replace those that didn't work.
