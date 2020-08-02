@@ -267,6 +267,16 @@ Installation:
 
 run it with `dmenu_run`. It's usefull to create a shortcut for this, I used the `<mod> + d`.
 
+### Clipboard manager
+
+See this [arch-wiki](https://wiki.archlinux.org/index.php/Clipboard) to understand the difference between Primary (auto selection) and Clipboard (explicit copy), and for clipboard-manager suggestsions.
+
+For me, nothing worked beside [Clipit](https://github.com/CristianHenzel/ClipIt). Installaion is simply as an AUR package (make sure the "requirements" list is met) and than run clipit (probably should add this as a startup application).
+
+Settings:
+1. I chose to use both primary and copy, synchronize clipboard and auto-paste options.
+2. run clipboard manually once to check if all the key-board shortcuts are O.K and replace those that didn't work.
+
 ### image viewer
 
 [feh](https://wiki.archlinux.org/index.php/Feh) (available via pacman)
