@@ -269,12 +269,27 @@ e.g. [lightdm](https://wiki.archlinux.org/index.php/LightDM) with webkit2 greete
 
 ### Terminal emulator
 
-e.g. [xterm](https://wiki.archlinux.org/index.php/Xterm) : `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
+I chose [xterm](https://wiki.archlinux.org/index.php/Xterm)
 
-usefull configurations:
+Installation: `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
+
+Usefull configurations - .Xresources:
 * `XTerm.termName: xterm-256color` or `XTerm.termName: xterm`
 * `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
 * Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
+
+
+**inputrc**: 
+
+To enable `.inputrc` operations and key-bindings install `readline` ([arch wiki](https://wiki.archlinux.org/index.php/Readline)). Then:
+* Check the available options for readline in the [readline man page](https://linux.die.net/man/3/readline)
+* Finally, check See the Xterm codes [here](https://www.x.org/docs/xterm/ctlseqs.pdf) (the escape sequence is `"\e"`)
+
+I used the arrowes for a prefix oriented history-search by adding these lines in the .inputrc file:
+
+	"\e[A": history-search-backward
+	"\e[B": history-search-forward
+
 
 ### Apps launcher
 
