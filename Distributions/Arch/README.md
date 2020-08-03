@@ -271,12 +271,14 @@ e.g. [lightdm](https://wiki.archlinux.org/index.php/LightDM) with webkit2 greete
 
 I chose [xterm](https://wiki.archlinux.org/index.php/Xterm)
 
-Installation: `sudo pacman -S xterm xorg-xrdb` (xrdb is needed for configurations)
+Installation: `sudo pacman -S xterm xorg-xrdb readline` (xrdb is needed for Xresources configurations and readline is needed for inputrc configurations)
 
 Usefull configurations - .Xresources:
 * `XTerm.termName: xterm-256color` or `XTerm.termName: xterm`
 * `XTerm.vt100.metaSendsEscape: true` (use Alt key as escape, like in other terminals)
-* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13` see the [arch wiki page](https://wiki.archlinux.org/index.php/Xterm)
+* Fonts control: `XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false` and `XTerm.vt100.font: 7x13`
+
+See this [man page](https://jlk.fjfi.cvut.cz/arch/manpages/man/xterm.1) for full list of control options from .Xresources: 
 
 
 **inputrc**: 
