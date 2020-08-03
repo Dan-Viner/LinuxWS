@@ -52,7 +52,7 @@ See this [man page](https://jlk.fjfi.cvut.cz/arch/manpages/man/xterm.1) for full
 **inputrc**: 
 
 To enable `.inputrc` operations and key-bindings install `readline` ([arch wiki](https://wiki.archlinux.org/index.php/Readline)). Then:
-* Check the available options for readline in the [linux man page](https://linux.die.net/man/3/readline)
+* Check the available options for readline in the [linux man page](https://linux.die.net/man/3/readline) or in the [GNU Readline Library](https://tiswww.case.edu/php/chet/readline/readline.html)
 * Finally, check See the Xterm control sequences [here](https://www.x.org/docs/xterm/ctlseqs.pdf) (the escape sequence is `"\e"`)
 
 I used the arrowes for a prefix oriented history-search by adding these lines in the .inputrc file:
