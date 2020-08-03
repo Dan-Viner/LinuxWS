@@ -36,17 +36,19 @@ If the data still exists- you can use live-media used for installation to:
 * exit chroot, `umount -a` and reboot
 
 ### Pacman basic usage
-`pacman -Syyy` - Refresh sources
+`sudo pacman -Syyy` - Refresh sources
 
-`pacman -S <PACKAGE>` - Install a package
+`sudo pacman -S <PACKAGE>` - Install a package
 
-`pacman -Rs <PACKAGE>` - Remove a package and its dependencies
+`sudo pacman -Rs <PACKAGE>` - Remove a package and its dependencies
 
-`pacman -Syu` - Upgrade all packages
+`sudo pacman -Syu` - Upgrade all packages
 
 `pacman -Ql <PACKAGE>` - check which files and folders are owned by a package
 
 `sudo pacman -Rns $(pacman -Qtdq)` - removing orphans
+
+`comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base-devel | sort | uniq)` - list all the explicit installed packages (besides base-devel group)
 
 ### AUR packages
 
@@ -232,13 +234,29 @@ To create a top-level subvolume first mount the root (the entire device, e.g. /d
 
 ## Applications
 
-pacman packages:
+**pacman packages**:
 
-	sudo pacman -S vim htop meld anki git vlc base-devel
+In the installation process:
 
-some aur packages:
+	sudo pacman -S linux-lts linux-lts-headers linux-firmware dosfstools mtools dialog grub-btrfs efibootmgr base base-devel cronie network-manager-applet reflector os-prober xorg-server wireless_tools
+
+Important packages:
+
+	sudo pacman -S awesome lightdm lightdm-webkit2-greeter xterm firefox feh anki dmenu git meld htop gvim vlc readline
+
+For sound support:
+
+	pacman -S alsa-utils pulseaudio pavucontrol
 	
-	eclipse snapd timeshift
+Xorg tools:
+
+	pacman -S xcompmgr xf86-video-intel xorg-xdpyinfo xorg-xinit (xorg-xrandr ?)
+
+For clipit:
+
+	sudo pacman -S xdotool intltool gtk3
+
+**AUR packages**: `eclipse snapd clipit (timeshift ?)`
 
 ### Display manager
 
