@@ -26,6 +26,8 @@ some notes:
 		
 **Note:** I don't understand why some things are done only on the live media in the installlation process and not on the actual system (for example the whole `timedatectl set-ntp true`).
 
+`TODO` - brightness control + redshift, power management, notifications, bash key-bindings (search history based on a prefix), yay (yarout)
+
 ### System recovery
 
 If the data still exists- you can use live-media used for installation to:
@@ -82,9 +84,6 @@ Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xo
                 Option "XkbOptions" "grp:alt_shift_toggle"
 	EndSection
 In order for the changes to take effect the user need to restart the X-server by running: `sudo systemctl restart display-manager`
-
-
-`TODO` - add ctrl+c, ctrl+v + clipboard manager, brightness control + redshift, HiDPI monitors, multiple monitors, power management, notifications, bash key-bindings (search history based on a prefix), yay (yarout)
 
 ### Sound support
 
