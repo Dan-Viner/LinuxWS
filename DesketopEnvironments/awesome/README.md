@@ -17,6 +17,8 @@ Awesome comes with a pre-installed panel, but the user will have to manually ins
 
 Read the [FAQ](https://awesomewm.org/doc/api/documentation/90-FAQ.md.html) to start understanding how to work with awesome.
 
+**Note**: awesome can work well with other desktop environment. Check the arch-wiki for instructions
+
 ### Basic key-bindings
 
 * `<mod> + s`  - shows the help menu for basic operations
