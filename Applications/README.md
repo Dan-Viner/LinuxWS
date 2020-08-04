@@ -10,7 +10,7 @@ In the installation process:
 
 Important packages:
 
-	sudo pacman -S awesome lightdm lightdm-webkit2-greeter xterm firefox feh anki dmenu git meld htop gvim vlc readline
+	sudo pacman -S awesome lightdm lightdm-webkit2-greeter xterm firefox xreader feh anki dmenu git meld htop gvim vlc readline
 
 For sound support:
 
@@ -105,3 +105,14 @@ Because I'm using BTRFS I also included the 'home' subvolume. Note that timeshif
 Timeshift also recommanding the usage of the BTRFS's qgroups. but they need to be enabled first. see [this page](https://btrfs.wiki.kernel.org/index.php/Quota_support) for the full explanation. For me using `sudo btrfs quota enable /` just worked perfectly.
 
 **IMPORTANT NOTE**: restoring a snapshot with timeshift on btrfs is basically just changing the subvolid in the /etc/fstab file to the id of the snapshot. because of that, in order for the restoration to work- the fstab should contain only the `subvolid` and not the actual subvolume name, or else there will be a conflict between the name and the id, and the restoration will fail!
+
+
+### Lyx
+
+See [the instruction for hebrew support](https://math-wiki.com/index.php?title=%D7%94%D7%95%D7%A8%D7%90%D7%95%D7%AA_%D7%9C%D7%94%D7%AA%D7%A7%D7%A0%D7%AA_LyX) and this [arch-wiki](https://wiki.archlinux.org/index.php/TeX_Live) page.
+
+Installation:
+
+	sudo pacman -S texlive-most texlive-lang biber lyx
+	
+For hebrew support install also the `culmus` package (available as an AUR package)
