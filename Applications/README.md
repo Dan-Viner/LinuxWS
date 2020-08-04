@@ -23,8 +23,12 @@ Xorg tools:
 For clipit:
 
 	sudo pacman -S xdotool intltool gtk3
+	
+For Lyx:
 
-**AUR packages**: `eclipse snapd clipit (timeshift ?)`
+	sudo pacman -S texlive-most texlive-lang biber lyx
+
+**AUR packages**: `eclipse snapd clipit culmus (timeshift ?)`
 
 ### Display manager
 
@@ -116,3 +120,5 @@ Installation:
 	sudo pacman -S texlive-most texlive-lang biber lyx
 	
 For hebrew support install also the `culmus` package (available as an AUR package)
+
+**Note**: some applications were not available via my mirror so I had to update the mirror list with additional mirrors, and then all the packages were found
