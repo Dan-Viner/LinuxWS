@@ -88,7 +88,7 @@ For me, nothing worked beside [Clipit](https://github.com/CristianHenzel/ClipIt)
 
 
 Settings:
-1. I chose to use both primary and copy, synchronize clipboard and auto-paste options.
+1. I chose to use both primary and copy, and I also marked the auto-paste option. However, I left the "synchronize clipboard" option unmarked to distinguish explicit copy for primary selection.
 2. run clipboard manually once to check if all the key-board shortcuts are O.K and replace those that didn't work.
 
 ### image viewer
