@@ -6,11 +6,11 @@ Some applications notes from 03.08.2020 with arch-linux
 
 In the installation process:
 
-	sudo pacman -S linux-lts linux-lts-headers linux-firmware dosfstools mtools dialog grub-btrfs efibootmgr base base-devel cronie network-manager-applet reflector os-prober xorg-server wireless_tools
+	sudo pacman -S linux-lts linux-lts-headers linux-firmware dosfstools mtools dialog grub-btrfs efibootmgr base base-devel cronie network-manager-applet os-prober wireless_tools
 
 Important packages:
 
-	sudo pacman -S awesome lightdm lightdm-webkit2-greeter xterm firefox xreader feh anki dmenu git meld htop gvim vlc readline
+	sudo pacman -S man-db xorg-server awesome lightdm lightdm-webkit2-greeter xterm firefox xreader feh anki dmenu git meld htop gvim vlc readline
 
 For sound support:
 
