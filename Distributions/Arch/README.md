@@ -26,7 +26,7 @@ some notes:
 		
 **Note:** I don't understand why some things are done only on the live media in the installlation process and not on the actual system (for example the whole `timedatectl set-ntp true`).
 
-`TODO` - brightness control + redshift, power management, notifications, bash key-bindings (search history based on a prefix), yay (yarout)
+`TODO` - brightness control + redshift, power management, notifications, bash key-bindings (search history based on a prefix)
 
 ### System recovery
 
