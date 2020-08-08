@@ -18,7 +18,9 @@ For sound support:
 	
 Xorg tools:
 
-	pacman -S xcompmgr xf86-video-intel xorg-xdpyinfo xorg-xinit (xorg-xrandr ?)
+	pacman -S xcompmgr xorg-xdpyinfo xorg-xinit (xorg-xrandr ?)
+
+* video drivers: identify card with `lspci | grep -e VGA -e 3D`. for intel card, install `sudo pacman -S xf86-video-intel`
 
 For clipit:
 
