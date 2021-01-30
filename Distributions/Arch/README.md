@@ -71,6 +71,14 @@ To use snap, after installation, one must first enable/start the service with `s
 
 **A note regarding the "--classic" flag**: most of the snap are using by default the "strict" confinement, meaning that they have a very limited access to the system and personal file, and they're basically running as independent units. However, some snaps requires access to the system files (for example pycharm has to use the python interpreter) so they require a "classic" confinement, meaning that they're basically like any normal installed package. To enable the installaion of such packages the user must first enable the access by creating the symlink: `ln -s /var/lib/snapd/snap /snap`, and then to give access permissions to a certain package by adding the `--classic` flag in the package installation. Read more about snap confinements [here](https://snapcraft.io/docs/snap-confinement)
 
+### pacakage management tips
+* Remove orphans: `sudo pacman -Qtdq | sudo pacman -Rns -`  
+* List explicitly installed packages: `pacman -Qe`  
+* List AUR packages: `pacman -Qm`  
+* Remove package and its dependencies: `pacman -Rs`
+
+
+
 ### Adding hebrew support (on X-server)
 
 Check this [Xorg/Keyboard_configuration](https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration) arch-wiki for detailed information. I just used one of the simplest option by adding an x-conf file under: `/etc/X11/xorg.conf.d/00-keyboard.conf` with this text:
